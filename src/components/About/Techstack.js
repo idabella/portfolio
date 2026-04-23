@@ -1,141 +1,177 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { SiNextdotjs, SiSolidity } from "react-icons/si";
-import { FaRust } from "react-icons/fa";
-import Go from "../../Assets/TechIcons/go.svg";
-import C from "../../Assets/TechIcons/C++.svg";
 import Javascript from "../../Assets/TechIcons/Javascript.svg";
 import Node from "../../Assets/TechIcons/Node.svg";
 import ReactIcon from "../../Assets/TechIcons/React.svg";
-import HaskellIcon from "../../Assets/TechIcons/Haskell.svg";
-import Java from "../../Assets/TechIcons/Java.svg";
 import Python from "../../Assets/TechIcons/Python.svg";
 import Typescript from "../../Assets/TechIcons/Typescript.svg";
 import Git from "../../Assets/TechIcons/Git.svg";
-import Firebase from "../../Assets/TechIcons/Firebase.svg";
-import Redis from "../../Assets/TechIcons/Redis.svg";
 import Docker from "../../Assets/TechIcons/Docker.svg";
 import Mongo from "../../Assets/TechIcons/Mongo.svg";
 import SQL from "../../Assets/TechIcons/SQL.svg";
-import Kubernates from "../../Assets/TechIcons/Kubernates.svg";
-import Redux from "../../Assets/TechIcons/Redux.svg";
-import Tailwind from "../../Assets/TechIcons/Tailwind.svg";
-import MUI from "../../Assets/TechIcons/MUI.svg";
-import Postman from "../../Assets/TechIcons/Postman.svg";
-import AWS from "../../Assets/TechIcons/AWS.svg";
-import Kafka from "../../Assets/TechIcons/Kafka.svg";
+import vsCode from "../../Assets/TechIcons/vscode.svg";
+import {
+  SiFastapi,
+  SiJupyter,
+  SiScikitlearn,
+  SiApacheairflow,
+  SiApachekafka,
+  SiApachespark,
+  SiApachecassandra,
+  SiOracle,
+  SiOpenai,
+} from "react-icons/si";
+import { TbBrain, TbVectorTriangle } from "react-icons/tb";
 
 function Techstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={C} alt="C++" />
-        <div className="tech-icons-text">C++</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Javascript} alt="javascript" />
-        <div className="tech-icons-text">Javascript</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Typescript} alt="typescript" />
-        <div className="tech-icons-text">Javascript</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Go} alt="go" />
-        <div className="tech-icons-text">Go</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Node} alt="node" />
-        <div className="tech-icons-text">Node.Js</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={ReactIcon} alt="react" />
-        <div className="tech-icons-text">React.Js</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiSolidity fontSize={"24px"} />
-        <div className="tech-icons-text">Solidity</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Mongo} alt="mongoDb" />
-        <div className="tech-icons-text">Mongo DB</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Redux} alt="redux" />
-        <div className="tech-icons-text">Redux</div>
-      </Col>
-
-      <Col xs={4} md={2} className="tech-icons">
-        <SiNextdotjs fontSize={"24px"} />
-        <div className="tech-icons-text">Next.js</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Git} alt="git" />
-        <div className="tech-icons-text">Git</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Firebase} alt="firebase" />
-        <div className="tech-icons-text">Firebase</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Redis} alt="redis" />
-        <div className="tech-icons-text">Redis</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Docker} alt="docker" />
-        <div className="tech-icons-text">Docker</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Kubernates} alt="kubernetes" />
-        <div className="tech-icons-text">Kubernetes</div>
-      </Col>
-
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={SQL} alt="SQL" />
-        <div className="tech-icons-text">Postgresql</div>
-      </Col>
-
+      {/* ── Langages & Frameworks ── */}
       <Col xs={4} md={2} className="tech-icons">
         <img src={Python} alt="Python" />
         <div className="tech-icons-text">Python</div>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <img src={Java} alt="haskell" />
-        <div className="tech-icons-text">Java</div>
+        <img src={ReactIcon} alt="React" />
+        <div className="tech-icons-text">React.js</div>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <img src={HaskellIcon} alt="haskell" />
-        <div className="tech-icons-text">Haskell</div>
+        <img src={Typescript} alt="TypeScript" />
+        <div className="tech-icons-text">TypeScript</div>
       </Col>
-
       <Col xs={4} md={2} className="tech-icons">
-        <img src={Tailwind} alt="tailwind" />
-        <div className="tech-icons-text">Tailwind CSS</div>
+        <img src={Javascript} alt="JavaScript" />
+        <div className="tech-icons-text">JavaScript</div>
       </Col>
-
       <Col xs={4} md={2} className="tech-icons">
-        <img src={MUI} alt="mui" />
-        <div className="tech-icons-text">Material UI</div>
+        <img src={Node} alt="Node.js" />
+        <div className="tech-icons-text">Node.js</div>
       </Col>
-
       <Col xs={4} md={2} className="tech-icons">
-        <img src={Postman} alt="Postman" />
-        <div className="tech-icons-text">Postman</div>
+        <SiFastapi fontSize={"4em"} />
+        <div className="tech-icons-text">FastAPI</div>
       </Col>
 
+      {/* ── Données & Bases ── */}
       <Col xs={4} md={2} className="tech-icons">
-        <FaRust fontSize={"24px"} />
-        <div className="tech-icons-text">Rust</div>
+        <img src={SQL} alt="PostgreSQL" />
+        <div className="tech-icons-text">PostgreSQL</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <img src={Mongo} alt="MongoDB" />
+        <div className="tech-icons-text">MongoDB</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiOracle fontSize={"4em"} color="#C74634" />
+        <div className="tech-icons-text">Oracle</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <div
+          style={{
+            width: 64,
+            height: 64,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "0.75em",
+            fontWeight: 900,
+            color: "white",
+            background: "linear-gradient(135deg,#C74634,#e8603c)",
+            borderRadius: "10px",
+            letterSpacing: "-0.5px",
+            textAlign: "center",
+            lineHeight: 1.1,
+          }}
+        >
+          PL/<br />SQL
+        </div>
+        <div className="tech-icons-text">PL/SQL</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiScikitlearn fontSize={"4em"} />
+        <div className="tech-icons-text">Scikit-learn</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiJupyter fontSize={"4em"} />
+        <div className="tech-icons-text">Jupyter</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <div
+          style={{
+            width: 64,
+            height: 64,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1.8em",
+            fontWeight: 800,
+            color: "#ff6933",
+          }}
+        >
+          n8n
+        </div>
+        <div className="tech-icons-text">n8n</div>
       </Col>
 
+      {/* ── Data Engineering ── */}
       <Col xs={4} md={2} className="tech-icons">
-        <img src={AWS} alt="Postman" className="tech-icon-images" />
-        <div className="tech-icons-text">AWS</div>
+        <SiApacheairflow fontSize={"4em"} color="#00AAE7" />
+        <div className="tech-icons-text">Airflow</div>
       </Col>
-
       <Col xs={4} md={2} className="tech-icons">
-        <img src={Kafka} alt="Kafka" className="tech-icon-images" />
+        <SiApachekafka fontSize={"4em"} color="#ffffff" />
         <div className="tech-icons-text">Kafka</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiApachespark fontSize={"4em"} color="#E25A1C" />
+        <div className="tech-icons-text">Spark</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiApachecassandra fontSize={"4em"} color="#1287B1" />
+        <div className="tech-icons-text">Cassandra</div>
+      </Col>
+
+      {/* ── IA & LLM ── */}
+      <Col xs={4} md={2} className="tech-icons">
+        <div
+          style={{
+            width: 64,
+            height: 64,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1.8em",
+            fontWeight: 800,
+            color: "#1C3C3C",
+            background: "#00A67E",
+            borderRadius: "10px",
+          }}
+        >
+          🦜
+        </div>
+        <div className="tech-icons-text">LangChain</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiOpenai fontSize={"4em"} color="#ffffff" />
+        <div className="tech-icons-text">LLMs</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <TbVectorTriangle fontSize={"4em"} color="#a78bfa" />
+        <div className="tech-icons-text">RAG</div>
+      </Col>
+
+      {/* ── DevOps & Outils ── */}
+      <Col xs={4} md={2} className="tech-icons">
+        <img src={Docker} alt="Docker" />
+        <div className="tech-icons-text">Docker</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <img src={Git} alt="Git" />
+        <div className="tech-icons-text">Git</div>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <img src={vsCode} alt="VS Code" className="tech-icon-images" />
+        <div className="tech-icons-text">VS Code</div>
       </Col>
     </Row>
   );

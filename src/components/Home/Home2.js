@@ -1,58 +1,61 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
+import myImg from "../../Assets/profilelogo.png";
 import Tilt from "react-parallax-tilt";
 
 function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row>
-          <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em" }}>
-              LET ME <span className="purple"> INTRODUCE </span> MYSELF
-            </h1>
-            <p className="home-about-body">
-              I’m a Software Engineer who loves transforming ideas into
-              reliable, scalable products. Over time, I’ve explored several
-              technologies and found my passion in building high-performance
-              systems and intuitive user experiences.
-              <br />
-              <br />
-              I’m proficient in
-              <i>
-                <b className="purple">
-                  {" "}
-                  JavaScript, C++, Rust, Node.js, and Java{" "}
-                </b>
-              </i>
-              — and I enjoy working across both backend and frontend stacks.
-              <br />
-              <br />
-              My key areas of interest include developing
-              <i>
-                <b className="purple">
-                  {" "}
-                  Web Applications, Blockchain Solutions,{" "}
-                </b>
-              </i>
-              and exploring new ways to bridge on-chain and off-chain systems.
-              <br />
-              <br />
-              Whenever possible, I love building projects with
-              <b className="purple"> Node.js </b> and modern frameworks like{" "}
-              <i>
-                <b className="purple">React.js</b> and{" "}
-                <b className="purple">Next.js</b>.
-              </i>
-            </p>
-          </Col>
-          <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
-          </Col>
-        </Row>
+        <div className="home2-glass-container">
+          <Row>
+            <Col md={8} className="home-about-description">
+              <h1 style={{ fontSize: "2.6em" }}>
+                LAISSEZ-MOI ME <span className="purple"> PRÉSENTER </span>
+              </h1>
+              <p className="home-about-body">
+                Ingénieur en formation passionné par la Data Science, l'IA
+                Générative et les architectures scalables. J'aime transformer des
+                données brutes en solutions intelligentes et impactantes.
+                <br />
+                <br />
+                Je maîtrise principalement{" "}
+                <i>
+                  <b className="purple">
+                    Python, React, Node.js, SQL et Docker{" "}
+                  </b>
+                </i>
+                — et j'apprécie travailler sur des projets full-stack comme sur
+                des pipelines de données.
+                <br />
+                <br />
+                Mes domaines d'intérêt incluent le développement de{" "}
+                <i>
+                  <b className="purple">Chatbots RAG, </b>
+                </i>
+                la{" "}
+                <i>
+                  <b className="purple">Data Engineering </b>
+                </i>
+                et les systèmes{" "}
+                <i>
+                  <b className="purple">NLP & LLM</b>
+                </i>
+                .
+                <br />
+                <br />
+                Certifié <b className="purple">Oracle</b> (OCI AI Foundations) et{" "}
+                <b className="purple">NVIDIA</b> (Building RAG Agents with LLMs),
+                je m'engage dans un apprentissage autonome continu.
+              </p>
+            </Col>
+            <Col md={4} className="myAvtar">
+              <Tilt>
+                <img src={myImg} className="img-fluid img-home2-glow" alt="avatar" />
+              </Tilt>
+            </Col>
+          </Row>
+        </div>
       </Container>
     </Container>
   );
