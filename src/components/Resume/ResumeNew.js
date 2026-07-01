@@ -5,6 +5,7 @@ import Particle from "../Particle";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import { useLang } from "../../i18n/LanguageContext";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -13,6 +14,7 @@ const pdfUrl = process.env.PUBLIC_URL + "/cv.pdf";
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
+  const { t } = useLang();
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -30,7 +32,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Télécharger CV
+            &nbsp;{t.resume.downloadBtn}
           </Button>
         </Row>
 
@@ -48,7 +50,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Télécharger CV
+            &nbsp;{t.resume.downloadBtn}
           </Button>
         </Row>
       </Container>

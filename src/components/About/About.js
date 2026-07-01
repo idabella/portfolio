@@ -6,8 +6,12 @@ import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/profile2.png";
 import Toolstack from "./Toolstack";
+import { useLang } from "../../i18n/LanguageContext";
 
 function About() {
+  const { t } = useLang();
+  const a = t.about;
+
   return (
     <>
       {" "}
@@ -24,7 +28,7 @@ function About() {
               }}
             >
               <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-                Qui <strong className="purple">Suis-Je ?</strong>
+                {a.pageTitle} <strong className="purple">{a.pageTitleHighlight}</strong>
               </h1>
               <Aboutcard />
             </Col>
@@ -38,13 +42,13 @@ function About() {
             </Col>
           </Row>
           <h1 className="project-heading">
-            Compétences <strong className="purple">Techniques </strong>
+            {a.techSkillsHeading} <strong className="purple">{a.techSkillsHighlight} </strong>
           </h1>
 
           <Techstack />
 
           <h1 className="project-heading">
-            <strong className="purple">Outils</strong> que j'utilise
+            <strong className="purple">{a.toolsHighlight}</strong> {a.toolsHeadingPost}
           </h1>
           <Toolstack />
 

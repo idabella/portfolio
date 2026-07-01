@@ -6,8 +6,11 @@ import Home2 from "./Home2";
 import Type from "./Type";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useLang } from "../../i18n/LanguageContext";
 
 function Home() {
+  const { t } = useLang();
+
   return (
     <section>
       <Container fluid className="home-section" id="home">
@@ -16,14 +19,14 @@ function Home() {
           <Row>
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
-                Bonjour !{" "}
+                {t.home.greeting}{" "}
                 <span className="wave" role="img" aria-labelledby="wave">
                   👋🏻
                 </span>
               </h1>
 
               <h1 className="heading-name ">
-                Je suis
+                {t.home.iAm}
                 <strong className="main-name "> MUSTAPHA IDABELLA</strong>
               </h1>
 
@@ -48,9 +51,9 @@ function Home() {
       <Container>
         <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
           <Col md={12} className="home-about-social">
-            <h1>Retrouvez-moi sur</h1>
+            <h1>{t.home.findMeOn}</h1>
             <p>
-              N'hésitez pas à <span className="purple">me contacter </span>
+              {t.home.contactMe}<span className="purple">{t.home.contactHighlight} </span>
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">

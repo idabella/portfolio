@@ -6,6 +6,7 @@ import logo from "../Assets/logo.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
+import { useLang } from "../i18n/LanguageContext";
 
 import {
   AiFillStar,
@@ -20,6 +21,7 @@ import { CgFileDocument } from "react-icons/cg";
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const { lang, switchLang, t } = useLang();
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -56,7 +58,7 @@ function NavBar() {
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+                <AiOutlineHome style={{ marginBottom: "2px" }} /> {t.nav.home}
               </Nav.Link>
             </Nav.Item>
 
@@ -66,7 +68,7 @@ function NavBar() {
                 to="/about"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+                <AiOutlineUser style={{ marginBottom: "2px" }} /> {t.nav.about}
               </Nav.Link>
             </Nav.Item>
 
@@ -79,7 +81,7 @@ function NavBar() {
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />{" "}
-                Projects
+                {t.nav.projects}
               </Nav.Link>
             </Nav.Item>
 
@@ -90,7 +92,7 @@ function NavBar() {
                 onClick={() => updateExpanded(false)}
               >
                 <MdOutlineAutoAwesome style={{ marginBottom: "2px" }} />{" "}
-                Skills
+                {t.nav.skills}
               </Nav.Link>
             </Nav.Item>
 
@@ -100,8 +102,29 @@ function NavBar() {
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                <CgFileDocument style={{ marginBottom: "2px" }} /> {t.nav.resume}
               </Nav.Link>
+            </Nav.Item>
+
+            {/* ── Language Switcher ── */}
+            <Nav.Item className="lang-switcher">
+              <button
+                id="lang-btn-fr"
+                className={`lang-btn ${lang === "fr" ? "lang-btn--active" : ""}`}
+                onClick={() => switchLang("fr")}
+                aria-label="Français"
+              >
+                FR
+              </button>
+              <span className="lang-divider">|</span>
+              <button
+                id="lang-btn-en"
+                className={`lang-btn ${lang === "en" ? "lang-btn--active" : ""}`}
+                onClick={() => switchLang("en")}
+                aria-label="English"
+              >
+                EN
+              </button>
             </Nav.Item>
 
             <Nav.Item className="fork-btn">

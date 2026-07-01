@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
+import { useLang } from "../../i18n/LanguageContext";
 import {
   SiFastapi,
   SiJupyter,
@@ -61,107 +62,91 @@ const certCards = [
   },
 ];
 
-const languages = [
-  { lang: "Arabe", level: "Langue maternelle", pct: 100, color: "#c084fc" },
-  { lang: "Tamazight", level: "Langue maternelle", pct: 100, color: "#c084fc" },
-  { lang: "Français", level: "B2 – Niveau avancé", pct: 72, color: "#818cf8" },
-  { lang: "Anglais", level: "B1 – Niveau intermédiaire", pct: 55, color: "#60a5fa" },
+// Tech items per group (icons only, names are in translation)
+const techGroupIcons = [
+  // Languages & Frameworks
+  [
+    { icon: <img src={Python} alt="Python" style={{ width: 48 }} />, name: "Python" },
+    { icon: <img src={ReactIcon} alt="React" style={{ width: 48 }} />, name: "React.js" },
+    { icon: <img src={Typescript} alt="TypeScript" style={{ width: 48 }} />, name: "TypeScript" },
+    { icon: <img src={Javascript} alt="JS" style={{ width: 48 }} />, name: "JavaScript" },
+    { icon: <img src={Node} alt="Node.js" style={{ width: 48 }} />, name: "Node.js" },
+    { icon: <SiFastapi size={48} />, name: "FastAPI" },
+  ],
+  // Data & Databases
+  [
+    { icon: <img src={SQL} alt="PostgreSQL" style={{ width: 48 }} />, name: "PostgreSQL" },
+    { icon: <img src={Mongo} alt="MongoDB" style={{ width: 48 }} />, name: "MongoDB" },
+    { icon: <SiOracle size={48} color="#C74634" />, name: "Oracle" },
+    {
+      icon: (
+        <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.7em", fontWeight: 900, color: "white", background: "linear-gradient(135deg,#C74634,#e8603c)", borderRadius: "10px", letterSpacing: "-0.5px", textAlign: "center", lineHeight: 1.1 }}>
+          PL/<br/>SQL
+        </div>
+      ),
+      name: "PL/SQL",
+    },
+    { icon: <SiScikitlearn size={48} />, name: "Scikit-learn" },
+    { icon: <SiJupyter size={48} />, name: "Jupyter" },
+    {
+      icon: (
+        <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.6em", fontWeight: 800, color: "#ff6933" }}>
+          n8n
+        </div>
+      ),
+      name: "n8n",
+    },
+  ],
+  // Data Engineering
+  [
+    { icon: <SiApacheairflow size={48} color="#00AAE7" />, name: "Airflow" },
+    { icon: <SiApachekafka size={48} color="#ffffff" />, name: "Kafka" },
+    { icon: <SiApachespark size={48} color="#E25A1C" />, name: "Spark" },
+    { icon: <SiApachecassandra size={48} color="#1287B1" />, name: "Cassandra" },
+  ],
+  // AI & LLM
+  [
+    {
+      icon: (
+        <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1em", fontWeight: 800, color: "#1C3C3C", background: "#00A67E", borderRadius: "10px" }}>
+          🦜
+        </div>
+      ),
+      name: "LangChain",
+    },
+    { icon: <SiOpenai size={48} color="#ffffff" />, name: "LLMs" },
+    { icon: <TbVectorTriangle size={48} color="#a78bfa" />, name: "RAG" },
+  ],
+  // DevOps & Tools
+  [
+    { icon: <img src={Docker} alt="Docker" style={{ width: 48 }} />, name: "Docker" },
+    { icon: <img src={Git} alt="Git" style={{ width: 48 }} />, name: "Git" },
+    { icon: <img src={vsCode} alt="VS Code" style={{ width: 48 }} />, name: "VS Code" },
+  ],
 ];
 
-const techGroups = [
-  {
-    label: "Langages & Frameworks",
-    items: [
-      { icon: <img src={Python} alt="Python" style={{ width: 48 }} />, name: "Python" },
-      { icon: <img src={ReactIcon} alt="React" style={{ width: 48 }} />, name: "React.js" },
-      { icon: <img src={Typescript} alt="TypeScript" style={{ width: 48 }} />, name: "TypeScript" },
-      { icon: <img src={Javascript} alt="JS" style={{ width: 48 }} />, name: "JavaScript" },
-      { icon: <img src={Node} alt="Node.js" style={{ width: 48 }} />, name: "Node.js" },
-      { icon: <SiFastapi size={48} />, name: "FastAPI" },
-    ],
-  },
-  {
-    label: "Données & Bases",
-    items: [
-      { icon: <img src={SQL} alt="PostgreSQL" style={{ width: 48 }} />, name: "PostgreSQL" },
-      { icon: <img src={Mongo} alt="MongoDB" style={{ width: 48 }} />, name: "MongoDB" },
-      { icon: <SiOracle size={48} color="#C74634" />, name: "Oracle" },
-      {
-        icon: (
-          <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.7em", fontWeight: 900, color: "white", background: "linear-gradient(135deg,#C74634,#e8603c)", borderRadius: "10px", letterSpacing: "-0.5px", textAlign: "center", lineHeight: 1.1 }}>
-            PL/<br/>SQL
-          </div>
-        ),
-        name: "PL/SQL",
-      },
-      { icon: <SiScikitlearn size={48} />, name: "Scikit-learn" },
-      { icon: <SiJupyter size={48} />, name: "Jupyter" },
-      {
-        icon: (
-          <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.6em", fontWeight: 800, color: "#ff6933" }}>
-            n8n
-          </div>
-        ),
-        name: "n8n",
-      },
-    ],
-  },
-  {
-    label: "Data Engineering",
-    items: [
-      { icon: <SiApacheairflow size={48} color="#00AAE7" />, name: "Airflow" },
-      { icon: <SiApachekafka size={48} color="#ffffff" />, name: "Kafka" },
-      { icon: <SiApachespark size={48} color="#E25A1C" />, name: "Spark" },
-      { icon: <SiApachecassandra size={48} color="#1287B1" />, name: "Cassandra" },
-    ],
-  },
-  {
-    label: "IA & LLM",
-    items: [
-      {
-        icon: (
-          <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1em", fontWeight: 800, color: "#1C3C3C", background: "#00A67E", borderRadius: "10px" }}>
-            🦜
-          </div>
-        ),
-        name: "LangChain",
-      },
-      {
-        icon: <SiOpenai size={48} color="#ffffff" />,
-        name: "LLMs",
-      },
-      {
-        icon: <TbVectorTriangle size={48} color="#a78bfa" />,
-        name: "RAG",
-      },
-    ],
-  },
-  {
-    label: "DevOps & Outils",
-    items: [
-      { icon: <img src={Docker} alt="Docker" style={{ width: 48 }} />, name: "Docker" },
-      { icon: <img src={Git} alt="Git" style={{ width: 48 }} />, name: "Git" },
-      { icon: <img src={vsCode} alt="VS Code" style={{ width: 48 }} />, name: "VS Code" },
-    ],
-  },
-];
+const langBarColors = ["#c084fc", "#c084fc", "#818cf8", "#60a5fa"];
+const langBarPcts = [100, 100, 72, 55];
 
 function Skills() {
+  const { t } = useLang();
+  const s = t.skills;
+
   return (
     <Container fluid className="project-section">
       <Particle />
       <Container>
-        {/* ── Titre ── */}
+        {/* ── Title ── */}
         <h1 className="project-heading">
-          Mes <strong className="purple">Compétences</strong>
+          {s.heading} <strong className="purple">{s.headingHighlight}</strong>
         </h1>
         <p style={{ color: "white", marginBottom: "50px" }}>
-          Compétences techniques, certifications et langues.
+          {s.subtitle}
         </p>
 
         {/* ── Tech Skills ── */}
-        {techGroups.map((group) => (
-          <div key={group.label} style={{ marginBottom: "40px" }}>
+        {techGroupIcons.map((items, gi) => (
+          <div key={gi} style={{ marginBottom: "40px" }}>
             <h2
               style={{
                 color: "white",
@@ -171,19 +156,19 @@ function Skills() {
                 paddingLeft: "12px",
               }}
             >
-              {group.label}
+              {s.techGroups[gi]}
             </h2>
             <Row style={{ justifyContent: "center", marginBottom: "10px" }}>
-              {group.items.map((item) => (
+              {items.map((item) => (
                 <Col
                   key={item.name}
-                  xs={4}
-                  md={2}
-                  className="tech-icons"
-                  style={{ marginBottom: "20px" }}
+                  xs="auto"
+                  style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}
                 >
-                  {item.icon}
-                  <div className="tech-icons-text">{item.name}</div>
+                  <div className="tech-icons">
+                    {item.icon}
+                    <div className="tech-icons-text">{item.name}</div>
+                  </div>
                 </Col>
               ))}
             </Row>
@@ -200,16 +185,11 @@ function Skills() {
             paddingLeft: "12px",
           }}
         >
-          Savoir-être
+          {s.softSkillsHeading}
         </h2>
         <Row style={{ justifyContent: "center", marginBottom: "50px" }}>
-          {[
-            " Résolution analytique",
-            " Apprentissage rapide",
-            " Travail en équipe",
-            " Adaptabilité",
-          ].map((s) => (
-            <Col key={s} xs={6} md={3} style={{ marginBottom: "16px" }}>
+          {s.softSkills.map((skill) => (
+            <Col key={skill} xs={6} md={3} style={{ marginBottom: "16px" }}>
               <div
                 style={{
                   background: "rgba(199, 112, 240, 0.1)",
@@ -230,7 +210,7 @@ function Skills() {
                   e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
-                {s}
+                {skill}
               </div>
             </Col>
           ))}
@@ -238,7 +218,7 @@ function Skills() {
 
         {/* ── Certifications ── */}
         <h1 className="project-heading" style={{ marginBottom: "30px" }}>
-          Mes <strong className="purple">Certifications</strong>
+          {s.certificationsHeading} <strong className="purple">{s.certificationsHighlight}</strong>
         </h1>
         <Row style={{ justifyContent: "center", marginBottom: "60px" }}>
           {certCards.map((c) => (
@@ -277,13 +257,13 @@ function Skills() {
           ))}
         </Row>
 
-        {/* ── Langues ── */}
+        {/* ── Languages ── */}
         <h1 className="project-heading" style={{ marginBottom: "30px" }}>
-          <strong className="purple">Langues</strong>
+          <strong className="purple">{s.languagesHeading}</strong>
         </h1>
         <Row style={{ justifyContent: "center", marginBottom: "60px" }}>
           <Col md={8}>
-            {languages.map((l) => (
+            {s.languageLevels.map((l, i) => (
               <div key={l.lang} style={{ marginBottom: "22px" }}>
                 <div
                   style={{
@@ -305,8 +285,8 @@ function Skills() {
                 >
                   <div
                     style={{
-                      width: `${l.pct}%`,
-                      background: `linear-gradient(90deg, ${l.color}, #c770f0)`,
+                      width: `${langBarPcts[i]}%`,
+                      background: `linear-gradient(90deg, ${langBarColors[i]}, #c770f0)`,
                       height: "100%",
                       borderRadius: "999px",
                       transition: "width 1s ease",

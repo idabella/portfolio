@@ -641,11 +641,13 @@ button:focus {
 
 .tech-icons {
   display: flex !important;
-  align-self: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
   justify-content: center !important;
+  align-self: center !important;
   font-size: 1rem !important;
   margin: 15px !important;
-  padding: 10px 20px !important;
+  padding: 12px 8px !important;
   opacity: 0.93 !important;
   outline: 1.7px solid rgba(200, 137, 230, 0.637) !important;
   vertical-align: middle !important;
@@ -653,18 +655,25 @@ button:focus {
   border-radius: 24px !important;
   box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
   overflow: hidden !important;
-  transition: all 0.4s ease 0s !important;
-  width: fit-content !important;
+  width: 105px !important;
+  height: 105px !important;
   cursor: pointer !important;
   transition: outline-color 0.3s, outline-width 0.3s, transform 0.3s;
   color: white;
 }
 
 .tech-icons-text {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
+  display: block;
+  margin-top: 8px;
+  margin-left: 0;
   color: white;
+  font-size: 0.78em;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  padding: 0 4px;
 }
 
 @media (max-width: 767px) {
@@ -842,4 +851,46 @@ button:focus {
 }
 .fork-btn-inner::after {
   display: none !important;
+}
+
+/* --------- */
+/* Language Switcher */
+/* --------- */
+.lang-switcher {
+  display: flex !important;
+  align-items: center !important;
+  padding-top: 8px !important;
+  margin-left: 10px !important;
+  gap: 2px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.82em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 3px 7px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  color: #ffffff;
+  background: rgba(199, 112, 240, 0.15);
+}
+
+.lang-btn--active {
+  color: #c770f0 !important;
+  background: rgba(199, 112, 240, 0.12);
+}
+
+.lang-divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.75em;
+  user-select: none;
+  padding: 0 1px;
 }

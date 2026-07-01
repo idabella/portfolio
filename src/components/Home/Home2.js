@@ -2,8 +2,12 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/profilelogo.png";
 import Tilt from "react-parallax-tilt";
+import { useLang } from "../../i18n/LanguageContext";
 
 function Home2() {
+  const { t } = useLang();
+  const h = t.home2;
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -11,42 +15,38 @@ function Home2() {
           <Row>
             <Col md={8} className="home-about-description">
               <h1 style={{ fontSize: "2.6em" }}>
-                LAISSEZ-MOI ME <span className="purple"> PRÉSENTER </span>
+                {h.letMeIntroduce} <span className="purple"> {h.introduce} </span>
               </h1>
               <p className="home-about-body">
-                Ingénieur en formation passionné par la Data Science, l'IA
-                Générative et les architectures scalables. J'aime transformer des
-                données brutes en solutions intelligentes et impactantes.
+                {h.bio1}
                 <br />
                 <br />
-                Je maîtrise principalement{" "}
+                {h.bio2part1}{" "}
                 <i>
                   <b className="purple">
-                    Python, React, Node.js, SQL et Docker{" "}
+                    {h.bio2highlight}{" "}
                   </b>
                 </i>
-                — et j'apprécie travailler sur des projets full-stack comme sur
-                des pipelines de données.
+                {h.bio2part2}
                 <br />
                 <br />
-                Mes domaines d'intérêt incluent le développement de{" "}
+                {h.bio3part1}{" "}
                 <i>
-                  <b className="purple">Chatbots RAG, </b>
+                  <b className="purple">{h.bio3highlight1} </b>
                 </i>
-                la{" "}
+                {h.bio3part2}{" "}
                 <i>
-                  <b className="purple">Data Engineering </b>
+                  <b className="purple">{h.bio3highlight2} </b>
                 </i>
-                et les systèmes{" "}
+                {h.bio3part3}{" "}
                 <i>
-                  <b className="purple">NLP & LLM</b>
+                  <b className="purple">{h.bio3highlight3}</b>
                 </i>
                 .
                 <br />
                 <br />
-                Certifié <b className="purple">Oracle</b> (OCI AI Foundations) et{" "}
-                <b className="purple">NVIDIA</b> (Building RAG Agents with LLMs),
-                je m'engage dans un apprentissage autonome continu.
+                {h.bio4part1} <b className="purple">{h.bio4oracle}</b> {h.bio4part2}{" "}
+                <b className="purple">{h.bio4nvidia}</b> {h.bio4part3}
               </p>
             </Col>
             <Col md={4} className="myAvtar">
