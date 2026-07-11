@@ -145,7 +145,7 @@ button:focus {
   opacity: 0.9 !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
@@ -164,25 +164,51 @@ button:focus {
   width: 4.5em !important;
 }
 
+.navbar-nav {
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+}
+
 .navbar-nav .nav-link {
   color: white !important;
-  padding-right: 1rem !important;
-  padding-left: 1rem !important;
+  padding-right: 0.7rem !important;
+  padding-left: 0.7rem !important;
+  white-space: nowrap !important;
 }
 
 .nav-link {
-  padding: 0.8rem 1rem !important;
+  padding: 0.8rem 0.7rem !important;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  /* Tight range: navbar is horizontal but space is limited for French labels */
+  .navbar {
+    font-size: 1rem !important;
+  }
+  .navbar-nav .nav-link {
+    padding-right: 0.45rem !important;
+    padding-left: 0.45rem !important;
+  }
+  .navbar-nav .nav-item {
+    margin-left: 2px !important;
+  }
+  .lang-switcher {
+    margin-left: 4px !important;
+  }
 }
 
 @media (max-width: 767px) {
   .nav-link {
     padding: 0.7rem 1rem !important;
   }
+  .navbar-nav .nav-item {
+    margin-left: 0 !important;
+  }
 }
 
 .navbar-nav .nav-item {
   position: relative;
-  margin-left: 20px;
+  margin-left: 8px;
 }
 
 .navbar-nav .nav-item a {
