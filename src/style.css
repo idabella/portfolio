@@ -1,4 +1,11 @@
 html {
+  /* Explicitly lock the root font-size to 16px.
+     In production builds, CRA uses the wider ">0.2%" browserslist target which
+     causes Autoprefixer / postcss-normalize to inject normalization rules that
+     can alter the root font-size, making the entire rem/em-based layout appear
+     scaled up compared to the dev build. This rule overrides any such injection. */
+  font-size: 16px;
+
   --section-background-color: linear-gradient(
     to bottom left,
     rgba(17, 16, 16, 0.582),
@@ -157,6 +164,17 @@ button:focus {
 }
 .navbar-brand {
   color: rgb(250, 250, 250) !important;
+}
+
+/* Make the collapse region fill all remaining space so that
+   the mx-auto center-nav group is centred across the full navbar width */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex !important;
+    flex: 1 !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
 }
 
 .logo {

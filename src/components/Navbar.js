@@ -54,8 +54,10 @@ function NavBar() {
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
+          {/* ── Five main nav links — centred via mx-auto ── */}
+          <Nav className="mx-auto" defaultActiveKey="#home">
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> {t.nav.home}
@@ -102,10 +104,14 @@ function NavBar() {
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> {t.nav.resume}
+                <CgFileDocument style={{ marginBottom: "2px" }} />{" "}
+                {t.nav.resume}
               </Nav.Link>
             </Nav.Item>
+          </Nav>
 
+          {/* ── Right-side controls: language switcher + fork button ── */}
+          <Nav className="ms-auto align-items-center">
             {/* ── Language Switcher ── */}
             <Nav.Item className="lang-switcher">
               <button
